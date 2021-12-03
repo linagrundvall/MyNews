@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.GameReviews>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("bdf4b38b-9f69-4d91-8849-1f287bcbed63"))
+    .ChildrenOfType("generalArticle")
+    .Where(x => x.IsVisible())
+    .OrderBy(x => x.Name);
+}
+	@foreach (var item in selection)
+	{
+		<a href="@item.Url()">
+                        <div>
+                            @item.Value("title")
+                        </div>
+                        @{
+                        var image = item.Value<IPublishedContent>("leadImage");
+                        }
+                        <div>
+                            <img src="@image.Url()" class="img-fluid" />
+                        </div>
+                        <div>
+                            @Model.Value("content")
+                        </div>
+                        </a>
+	}
+

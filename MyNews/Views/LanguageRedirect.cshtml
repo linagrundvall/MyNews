@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.LanguageRedirect>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+    var culture = Context.Request.Headers["Accept-Language"].ToString().Split(',').FirstOrDefault();
+    var language = culture.Split('-').FirstOrDefault();
+    string url = $"https://localhost:44391/"+language;
+}
+
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta http-equiv="refresh" content="0"; url='@url'"/>
+    </header>
+</html>

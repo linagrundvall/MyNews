@@ -1,0 +1,28 @@
+﻿#navbarSupportedContent{
+    font-size:"3em";
+}
+.nav-text {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.button-login {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    text-align: center;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.button-signup {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    text-align: center;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
