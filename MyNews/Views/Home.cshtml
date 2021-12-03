@@ -13,21 +13,21 @@
     .OrderBy(x => x.CreateDate)
     .Take(10);
 }
-
 @foreach (var item in selection)
 {
-    <a href="@item.Url()">
-                        <div>
-                            <h5>@item.Value("title")</h5>
-                        </div>
-                        @{
-                        var image = item.Value<IPublishedContent>("leadImage");
-                        }
-                        <div>
-                            <img src="@image.Url()" class="img-fluid" />
-                        </div>
-                        <div>
-                            @Model.Value("content")
-                        </div>
-                        </a>
+    
+    <a class="col-8" href="@item.Url()">
+        <div>
+            <h5 class="mt-5">@item.Value("title")</h5>
+        </div>
+        @{
+            var image = item.Value<IPublishedContent>("leadImage");
+        }
+        <div>
+            <img src="@image.Url()" class="img-fluid" />
+        </div>
+        <div>
+            @Model.Value("content")
+        </div>
+    </a>
 }
